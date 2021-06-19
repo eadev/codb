@@ -59,7 +59,7 @@ while opcion_menu != 4:
 
     elif opcion_menu == 3:
         # VARIABLE licencia  string  Creative Commons -- CRISTIAN
-        licencia = "Creative Commons" 
+        licencia = "Creative Commons cjvl otro cambia" 
         print(licencia) 
     else:
         print("Cerrando la aplicación.")
