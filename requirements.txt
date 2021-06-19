@@ -1,1 +1,1 @@
-pymysql = 2.1
+pymysql
