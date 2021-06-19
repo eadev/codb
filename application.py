@@ -16,11 +16,11 @@ print(f"{bcolors.OKBLUE}Bienvenidos a CODB, sistema de gestión de base de datos
 print(f"{bcolors.OKBLUE}Indicanos tus datos para conectarnos y así ejecuta sentencias.\n {bcolors.WARNING}") 
 while opcion_menu != 4:
     # MENU PARA LA SELEECIÓN DE LAS OPCIONES -- SERGIO
-    print("Menú para la seleccion de opciones:") 
-    print("1. Conectar a la base de datos.")
-    print("2. Autores.")
-    print("3. Licencia.")
-    print("4. Salir.")
+    print(f"""{bcolors.FAIL}Menú para la seleccion de opciones:
+            1. Conectar a la base de datos.
+            2. Autores.
+            3. Licencia.
+            4. Salir.{bcolors.ENDC}""")
     opcion_menu = int(input("¿Qué opción eliges? (1-4):"))
 
     if opcion_menu == 1:
