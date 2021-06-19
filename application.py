@@ -13,7 +13,7 @@ class bcolors:
 opcion_menu = 0
 
 print(f"{bcolors.OKBLUE}Bienvenidos a CODB, sistema de gestión de base de datos.\n {bcolors.WARNING}") 
-print(f"{bcolors.HEADER}Indicanos tus datos para conectarnos y así ejecuta sentencias.\n {bcolors.OKCYAN}") 
+print(f"{bcolors.OKBLUE}Indicanos tus datos para conectarnos y así ejecuta sentencias.\n {bcolors.WARNING}") 
 while opcion_menu != 4:
     # MENU PARA LA SELEECIÓN DE LAS OPCIONES -- SERGIO
     print("Menú para la seleccion de opciones:") 
