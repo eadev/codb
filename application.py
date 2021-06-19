@@ -54,7 +54,7 @@ while opcion_menu != 4:
         autor5 = ("ESNEYDER SAAVEDRA") 
         autor6 = ("JHON JEREZ") 
         autor7 = ("SERGIO INE") 
-        autor8 = ("MIGUEL ANGEL RODRIGUEZ") 
+        autor8 = ("MIGUEL ANGEL RODRIGUEZ HENAO") 
         print(f"AUTORES: \n{autor1} \n{autor2} \n{autor3} \n{autor4} \n{autor5} \n{autor6} \n{autor7} \n{autor8}") 
 
     elif opcion_menu == 3:
