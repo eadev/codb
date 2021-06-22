@@ -1,65 +1,72 @@
-# DISEÑADOR - ESNEYDER 
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+'''
+APLICACIÓN PARA LA ADMINSITRACIÓN DE BASES DE DATOS EN UN ENTORNO CLI
+@author: EDWIN ARIZA <me@edwinariza.com>
+@copyright: GNU Public License 
+'''
+
+import pymysql  
+import os
+from start.welcome import Welcome
+from plugins.theme.bcolors import Bcolors
+from core.menu import Menu
+from core.pantalla import Pantalla
+
+# INICIAMOS LA VISTA DE BIENVENIDA
+ostart = Welcome()
+ostart.start()
+# OBJETO PANTALLA
+opantalla = Pantalla()
+
+# SOLICITAMOS UN ENTER PARA CONTINUAR
+tecla = input(f"{Bcolors.WARNING}Presiona cualquier tecla para continuar...{Bcolors.END}")
+# LIMPIAMOS LA PANTALLA CUANDO SE PRESIONE CUALQUIER TECLA
+opantalla.limpiar()
+
+# GENERAMOS EL MENU DE LA APLICACION 
+omenu = Menu()
+opcion_menu = omenu.mostrar()
+
+# ACCIONES ASOCIADAS A OPCIÓN DE MENÚ SELECCIONADA
+if opcion_menu == 1:
+    confirmacion = False  # PERMITE SABER SI EL USUARIO CONFIRMO Y SI NO SE REPITE
+    host = input(f"{Bcolors.WARNING}HOST DB: {Bcolors.END}")
+    usuario = input(f"{Bcolors.WARNING}USUARIO BD: {Bcolors.END}")
+    clave = input(f"{Bcolors.WARNING}CLAVE BD: {Bcolors.END}")
+    base_datos = input(f"{Bcolors.WARNING}NOMBRE BD: {Bcolors.END}")
+    # LIMPIAMOS LA PANTALLA
+    opantalla.limpiar()
+    # CONFIRMAMOS LA OPCIÓN SELECCIONADA
+    print("¿Estas seguro que los datos de configuración son los indicados a continuación?")
+    print(f"{Bcolors.WARNING}HOST DB    {Bcolors.END}======> {Bcolors.BOLD}{host}{Bcolors.END}")
+    print(f"{Bcolors.WARNING}USUARIO DB {Bcolors.END}======> {Bcolors.BOLD}{usuario}{Bcolors.END}")
+    print(f"{Bcolors.WARNING}CLAVE DB   {Bcolors.END}======> {Bcolors.BOLD}{clave}{Bcolors.END}")
+    print(f"{Bcolors.WARNING}NOMBRE DB  {Bcolors.END}======> {Bcolors.BOLD}{base_datos}{Bcolors.END}")
+    # CICLO DE COMPROBACIÓN DE SELECCIÓN CORRECTA: 
+    confirma = None
+    while confirma not in ("Y","y","N","n"):
+        confirma = input("Confirmas (Y/y/N/n): ")
+    # IMPRIMIR LO QUE EL USUARIO SELECCIONO -- DIEGO 
+    if confirma == "Y" or confirma == "y": 
+        opantalla.limpiar()
+        print("Confirmado") 
+    else: 
+        opantalla.limpiar()
+        pass # TODO
+
+# OPCIÓN 2 SELECCIONADA
+elif opcion_menu == 2:
+    # IMPRIMIR LOS AUTORES  -- MIGUEL 
+    autores = ("EDWIN ALONSO ARIZA CÁCERES") 
+    print(f"AUTORES: \n{autores}") 
+
+# OPCIÓN 3 SELECCIONADA
+elif opcion_menu == 3:
+    # VARIABLE licencia  string  Creative Commons
+    licencia = "GNU Public License" 
+    print(licencia) 
     
-opcion_menu = 0
-
-print(f"{bcolors.OKBLUE}Bienvenidos a CODB, sistema de gestión de base de datos..\n {bcolors.WARNING}") 
-print(f"{bcolors.OKBLUE}Indicanos tus datos para conectarnos y así ejecuta sentencias.\n {bcolors.WARNING}") 
-while opcion_menu != 4:
-    # MENU PARA LA SELEECIÓN DE LAS OPCIONES -- SERGIO
-    print("Menú para la seleccion de opciones:") 
-    print("1. Conectar a la base de datos.")
-    print("2. Autores.")
-    print("3. Licencia.")
-    print("4. Salir.")
-    opcion_menu = int(input("¿Qué opción eliges? (1-4):"))
-
-    if opcion_menu == 1:
-        host = input("Host BD:")
-        confirmacion = False  # PERMITE SABER SI EL USUARIO CONFIRMO Y SI NO SE REPITE
-        usuario = input("Usuario BD:")
-        clave = input("Clave BD:")
-        base_datos = input("Nombre BD:")
-
-        print("Estas seguro que los datos de configuración son:")
-
-        print(f"Host ======> {host}")
-        print(f"Usuario ======> {usuario}")
-        print(f"Clave ======> {clave}")
-        print(f"Base de Datos ======> {base_datos}")
-        # CICLO DE COMPROBACIÓN DE SELECCIÓN CORRECTA: - ROSEMBERGTH
-        confirma = None
-        while confirma not in ("Y","y","N","n"):
-            confirma = input("Confirmas (Y/y/N/n): ")
-        # IMPRIMIR LO QUE EL USUARIO SELECCIONO -- DIEGO 
-        if confirma == "Y" or confirma == "y": 
-            print("Confirmado") 
-        else: 
-            pass # TODO
-    elif opcion_menu == 2:
-        # IMPRIMIR LOS AUTORES  -- MIGUEL 
-        autor1 = ("JORGE ENRIQUE GONZALEZ GRANADOS") 
-        autor2 = ("ROSENBERGTH") 
-        autor3 = ("CRISTIAN VILLALBA LOZANO") 
-        autor4 = ("DIEGO SANTOS REYES") 
-        autor5 = ("ESNEYDER SAAVEDRA") 
-        autor6 = ("JHON JEREZ") 
-        autor7 = ("SERGIO INE") 
-        autor8 = ("MIGUEL ANGEL RODRIGUEZ HENAO") 
-        print(f"AUTORES: \n{autor1} \n{autor2} \n{autor3} \n{autor4} \n{autor5} \n{autor6} \n{autor7} \n{autor8}") 
-
-    elif opcion_menu == 3:
-        # VARIABLE licencia  string  Creative Commons -- CRISTIAN
-        licencia = "Creative Commons" 
-        print(licencia) 
-    else:
-        print("Cerrando la aplicación.")
+# OPCIÓN 4 SELECCIONADA
+else:
+    print("Cerrando la aplicación.")
+    # SALIMOS DE LA APLICACIÓN
+    exit(0) 
