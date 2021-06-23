@@ -5,6 +5,7 @@ APLICACIÓN PARA LA ADMINSITRACIÓN DE BASES DE DATOS EN UN ENTORNO CLI
 '''
 
 import pymysql  
+import getpass
 import os
 from start.welcome import Welcome
 from plugins.theme.bcolors import Bcolors
@@ -31,7 +32,8 @@ if opcion_menu == 1:
     confirmacion = False  # PERMITE SABER SI EL USUARIO CONFIRMO Y SI NO SE REPITE
     host = input(f"{Bcolors.WARNING}HOST DB: {Bcolors.END}")
     usuario = input(f"{Bcolors.WARNING}USUARIO BD: {Bcolors.END}")
-    clave = input(f"{Bcolors.WARNING}CLAVE BD: {Bcolors.END}")
+    # clave = input(f"{Bcolors.WARNING}CLAVE BD: {Bcolors.END}")
+    clave = getpass.getpass(f"{Bcolors.WARNING}CLAVE BD: {Bcolors.END}")
     base_datos = input(f"{Bcolors.WARNING}NOMBRE BD: {Bcolors.END}")
     # LIMPIAMOS LA PANTALLA
     opantalla.limpiar()
@@ -39,7 +41,7 @@ if opcion_menu == 1:
     print("¿Estas seguro que los datos de configuración son los indicados a continuación?")
     print(f"{Bcolors.WARNING}HOST DB    {Bcolors.END}======> {Bcolors.BOLD}{host}{Bcolors.END}")
     print(f"{Bcolors.WARNING}USUARIO DB {Bcolors.END}======> {Bcolors.BOLD}{usuario}{Bcolors.END}")
-    print(f"{Bcolors.WARNING}CLAVE DB   {Bcolors.END}======> {Bcolors.BOLD}{clave}{Bcolors.END}")
+    # print(f"{Bcolors.WARNING}CLAVE DB   {Bcolors.END}======> {Bcolors.BOLD}{clave}{Bcolors.END}")
     print(f"{Bcolors.WARNING}NOMBRE DB  {Bcolors.END}======> {Bcolors.BOLD}{base_datos}{Bcolors.END}")
     # CICLO DE COMPROBACIÓN DE SELECCIÓN CORRECTA: 
     confirma = None
