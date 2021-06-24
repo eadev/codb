@@ -12,11 +12,14 @@ from plugins.theme.bcolors import Bcolors
 from core.menu import Menu
 from core.pantalla import Pantalla
 
+# OBJETO PANTALLA
+opantalla = Pantalla()
+# LIMPIAMOS LA PANTALLA
+opantalla.limpiar()
 # INICIAMOS LA VISTA DE BIENVENIDA
 ostart = Welcome()
 ostart.start()
-# OBJETO PANTALLA
-opantalla = Pantalla()
+
 
 # SOLICITAMOS UN ENTER PARA CONTINUAR
 tecla = input(f"{Bcolors.WARNING}Presiona cualquier tecla para continuar...{Bcolors.END}")
@@ -50,7 +53,26 @@ if opcion_menu == 1:
     # IMPRIMIR LO QUE EL USUARIO SELECCIONO -- DIEGO 
     if confirma == "Y" or confirma == "y": 
         opantalla.limpiar()
-        print("Confirmado") 
+        # CONECTAR A LA BASE DE DATOS  
+        connection = pymysql.connect(host=host,
+                             user=usuario,
+                             password=clave,
+                             database=base_datos,
+                             cursorclass=pymysql.cursors.DictCursor)
+        print(f"Conectados a la base de datos {base_datos}.")
+        # GENERAR UN CURSOR PARA RECORRER LA BASE DE DATOS
+        cursor = connection.cursor()
+        # SENTENCIA SQL A EJECUTAR
+        sql = ""
+        while sql != 'exit':
+            sql = input(f"{Bcolors.WARNING}#SQL#:{Bcolors.OKBLUE} ")
+            if sql != 'exit':
+                #EJECUTAR LA SENTENCIA SQL
+                cursor.execute(sql)
+                # OBTENER EL RESULTADO
+                result = cursor.fetchall()  
+                # IMPRIMIR EL RESULTADO
+                print(result)
     else: 
         opantalla.limpiar()
         pass # TODO
