@@ -1,0 +1,15 @@
+README.md
+setup.py
+./codb
+codbt.egg-info/PKG-INFO
+codbt.egg-info/SOURCES.txt
+codbt.egg-info/dependency_links.txt
+codbt.egg-info/top_level.txt
+core/__init__.py
+core/main.py
+core/menu.py
+core/pantalla.py
+start/__init__.py
+start/welcome.py
+ui/__init__.py
+ui/login.py

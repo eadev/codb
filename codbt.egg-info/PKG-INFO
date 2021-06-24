@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: codbt
+Version: 1.0
+Summary: Database manager CLI.
+Home-page: https://github.com/eadev/codb
+Author: Edwin Ariza
+Author-email: me@edwinariza.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires: pymysql
+Requires: tk
+Requires: tabulate
+Requires: stdiomask
+Description-Content-Type: text/markdown
+
+# CODB
+## Aplicación CLI para la gestión de la base de datos.
+
+## Instalación
+
+        pip install -r requirements.txt
+
+## Ejecución
+        
+        python application.py
+
+

@@ -1,1 +1,3 @@
-test1.py
+dist/
+build/
+codb_cli.egg-info
