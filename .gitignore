@@ -1,3 +1,3 @@
 dist/
 build/
-codb_cli.egg-info
+codb.egg-info/

@@ -1,4 +1,0 @@
-pymysql
-tk
-tabulate
-stdiomask
