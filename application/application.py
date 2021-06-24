@@ -130,7 +130,7 @@ def main():
         elif opcion_menu == 3:
             opantalla.limpiar()
             # VARIABLE licencia 
-            licencia = "GNU Public License" 
+            licencia = "License :: OSI Approved :: MIT License" 
             print(licencia) 
             tecla = input(f"{Bcolors.WARNING}Presiona [ENTER] para continuar...{Bcolors.END}")
             

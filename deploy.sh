@@ -5,4 +5,4 @@ python setup.py bdist_wheel
 python -m twine upload dist/*
 
 #INSTALACIÓN LOCAL
-python -m pip install dist/codb-1.0-py3-none-any.whl
+# python -m pip install dist/codb-1.0-py3-none-any.whl

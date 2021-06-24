@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='codb',  
-    version='1.0',
+    version='0.2.0',
     scripts=['./codb'],
     author="Edwin Ariza",
     author_email="me@edwinariza.com",
