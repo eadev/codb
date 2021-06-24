@@ -5,7 +5,6 @@ APLICACIÓN PARA LA ADMINSITRACIÓN DE BASES DE DATOS EN UN ENTORNO CLI
 '''
 import pymysql  
 import stdiomask
-import tkinter
 import os
 from tabulate import tabulate
 from start.welcome import Welcome
@@ -14,7 +13,10 @@ from core.menu import Menu
 from core.pantalla import Pantalla
 from conf.usuario import Usuario
 
-if __name__ == '__main__':
+'''
+METODO INICIAL DE EJECUCIÓN
+'''
+def main():
     # OBJETO PANTALLA
     opantalla = Pantalla()
     # LIMPIAMOS LA PANTALLA
@@ -139,3 +141,8 @@ if __name__ == '__main__':
             tecla = input(f"{Bcolors.WARNING}Presiona [ENTER] para salir...{Bcolors.END}")
             # SALIMOS DE LA APLICACIÓN
             exit(0) 
+    
+
+# PERMITE LA EJECUCIÓN INDIVIDUAL
+if __name__ == '__main__':
+    main()

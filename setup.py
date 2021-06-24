@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 
 setuptools.setup(
-    name='codbt',  
+    name='codb',  
     version='1.0',
     scripts=['./codb'],
     author="Edwin Ariza",
@@ -20,7 +20,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    requires = [
+    install_requires = [
         "pymysql",
         "tk",
         "tabulate",
