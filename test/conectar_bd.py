@@ -1,9 +1,9 @@
 import pymysql
 # CONECTAR A LA BASE DE DATOS
-connection = pymysql.connect(host='test-db.cmsps5wd6hoj.ca-central-1.rds.amazonaws.com',
-                             user='admin',
-                             password='2d8JAZ9Vcy',
-                             database='codb',
+connection = pymysql.connect(host='',
+                             user='',
+                             password='',
+                             database='',
                              cursorclass=pymysql.cursors.DictCursor)
 
 print("Conectados a la base de datos.")
